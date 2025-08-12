@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giga.pub — Klaim Bonus & Monetisasi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f3f4f6;
+      color: #111;
+    }
+    header {
+      background: linear-gradient(90deg, #0f172a, #0b1220);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .banner {
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+      padding: 20px;
+      border-radius: 12px;
+      color: white;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+    .banner h2 {
+      margin-top: 0;
+    }
+    .giga-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .giga-btn:hover {
+      opacity: 0.9;
+    }
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Giga.pub — Buat Link. Monetisasi. Tumbuh.</h1>
+</header>
+
+<div class="container">
+
+  <div class="banner">
+    <h2>🎁 Klaim Bonus Spesial Sekarang!</h2>
+    <p>Daftar di <strong>giga.pub</strong> dan gunakan kode ID <strong>1576</strong> untuk mendapatkan reward eksklusif.</p>
+    <a class="giga-btn" href="https://giga.pub" target="_blank">Daftar Sekarang</a>
+  </div>
+
+  <button id="showAdBtn" class="giga-btn">🎁 Lihat Iklan & Klaim Bonus</button>
+
+</div>
+
+<footer>
+  &copy; 2025 Promosi Giga.pub — ID Referral: 1576
+</footer>
+
+<!-- Script giga.pub -->
+<script src="https://ad.gigapub.tech/script?id=1576"></script>
+
+<!-- Auto-attach ID ke semua link -->
+<script>
+(function(){
+  const refID = "1576";
+  document.querySelectorAll('a').forEach(a=>{
+    if(a.href.includes("giga.pub") || a.href.includes("gigapub.tech")){
+      try{
+        const url = new URL(a.href);
+        url.searchParams.set('ref', refID);
+        a.href = url.toString();
+      }catch(e){
+        const sep = a.href.includes('?') ? '&' : '?';
+        a.href = a.href + sep + 'ref=' + encodeURIComponent(refID);
+      }
+    }
+  });
+})();
+</script>
+
+<!-- Event klik untuk memanggil showGiga -->
+<script>
+document.getElementById('showAdBtn').addEventListener('click', () => {
+  if (window.showGiga) {
+    window.showGiga()
+      .then(() => {
+        alert("Selamat! Kamu berhasil klaim bonus 🎉");
+      })
+      .catch(e => {
+        console.error("Gagal memuat iklan:", e);
+        alert("Iklan gagal dimuat, coba lagi nanti.");
+      });
+  } else {
+    alert("Fitur iklan belum siap. Pastikan script giga.pub sudah dimuat.");
+  }
+});
+</script>
+
+</body>
+</html>
